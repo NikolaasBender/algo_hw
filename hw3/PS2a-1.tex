@@ -1,0 +1,117 @@
+\documentclass[12pt]{article}
+\setlength{\oddsidemargin}{0in}
+\setlength{\evensidemargin}{0in}
+\setlength{\textwidth}{6.5in}
+\setlength{\parindent}{0in}
+\setlength{\parskip}{\baselineskip}
+\usepackage{amsmath,amsfonts,amssymb}
+\usepackage{graphicx}
+\usepackage{enumitem}
+\usepackage[]{algorithmicx}
+
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+\setlength{\headsep}{36pt}
+
+\usepackage{hyperref}
+
+
+
+\newcommand{\makenonemptybox}[2]{%
+%\par\nobreak\vspace{\ht\strutbox}\noindent
+\item[]
+\fbox{% added -2\fboxrule to specified width to avoid overfull hboxes
+% and removed the -2\fboxsep from height specification (image not updated)
+% because in MWE 2cm is should be height of contents excluding sep and frame
+\parbox[c][#1][t]{\dimexpr\linewidth-2\fboxsep-2\fboxrule}{
+  \hrule width \hsize height 0pt
+  #2
+ }%
+}%
+\par\vspace{\ht\strutbox}
+}
+\makeatother
+
+\begin{document}
+
+\lhead{{\bf CSCI 3104, Algorithms \\ Problem Set 2a (12 points)} }
+\rhead{Name: \fbox{\phantom{This is a really long name}} \\ ID: \fbox{\phantom{This is a student ID}} \\ {\bf Profs.\ Hoenigman \& Agrawal\\ Fall 2019, CU-Boulder}}
+\renewcommand{\headrulewidth}{0.5pt}
+
+\phantom{Test}
+
+\begin{small}
+\textit{Advice 1}:\ For every problem in this class, you must justify your answer:\ show how you arrived at it and why it is correct. If there are assumptions you need to make along the way, state those clearly.
+
+\vspace{-3mm} 
+\textit{Advice 2}:\ Verbal reasoning is typically insufficient for full credit. Instead, write a logical argument, in the style of a mathematical proof.
+
+
+\textbf{Instructions for submitting your solution}:
+\vspace{-5mm} 
+
+\begin{itemize}
+	\item The solutions \textbf{should be typed} and we cannot accept hand-written solutions. \href{http://ece.uprm.edu/~caceros/latex/introduction.pdf}{Here's a short intro to Latex.}
+	\item You should submit your work through \href{https://www.gradescope.com/courses/59294}{\textbf{Gradescope}} only.
+	\item If you don't have an account on it, sign up for one using your CU email. You should have gotten an email to sign up. If your name based CU email doesn't work, try the identikey@colorado.edu version. 
+	\item Gradescope will only accept \textbf{.pdf} files (except for code files that should be submitted separately on Gradescope if a problem set has them) and \textbf{try to fit your work in the box provided}. 
+	\item You cannot submit a pdf which has less pages than what we provided you as Gradescope won't allow it. 
+\end{itemize}
+\vspace{-4mm} 
+\end{small}
+
+\hrulefill
+
+\begin{enumerate}
+\pagebreak
+\item{\itshape (6 pts) For each of the following pairs of functions $f(n)$ and $g(n)$, we have that $f(n) \in \mathcal{O}(g(n))$. Find valid constants $c$ and $n_{0}$ in accordance with the definition of Big-O. For the sake of this assignment, both $c$ and $n_{0}$ should be strictly less than $10$. You do \textbf{not} need to formally prove that $f(n) \in \mathcal{O}(g(n))$ (that is, no induction proof or use of limits is needed).}
+\begin{enumerate}[label=(\alph*)]
+\item $f(n) = n^{3}\log(n)$ and $g(n) = n^{4}$.
+\makenonemptybox{1.5in}{}
+
+\item $f(n) = n2^{n}$ and $g(n) = 2^{n\log_{2}(n)}$.
+\makenonemptybox{1.5in}{}
+
+
+\item $f(n) = 4^{n}$ and $g(n) = (2n)!$
+\makenonemptybox{1.5in}{}
+\end{enumerate}
+
+
+\pagebreak
+\item {\itshape (2 pts) Let $f(n) = 3n^{3} + 6n^{2} + 6000.$ So $f(n) \in \Theta(n^{3}).$ Find appropriate constants $c_{1}, c_{2},$ and $n_{0}$ in accordance with the definition of Big-Theta. }
+\makenonemptybox{5in}{}
+%\pagebreak
+
+
+\pagebreak
+\item {\itshape (2 pts) Consider the following algorithm. Find a suitable function $g(n)$, such that the algorithm's worst-case runtime complexity is $\Theta(g(n)).$ You do \textbf{not} need to formally prove that $f(n) \in \Theta(g(n))$ (that is, no induction proof or use of limits is needed).}
+\begin{verbatim}
+count = 0
+for(i = n; i >= 0; i = i - 1){
+    for(j = i-1; j >= 0; j = j-1){
+        count = count+1
+    }
+}
+\end{verbatim}
+\makenonemptybox{5in}{}
+
+\pagebreak
+\item {\itshape (2 pts) Consider the following algorithm. Find a suitable function $g(n)$, such that the algorithm's worst-case runtime complexity is $\Theta(g(n)).$ You do \textbf{not} need to formally prove that $f(n) \in \Theta(g(n))$ (that is, no induction proof or use of limits is needed).}
+\begin{verbatim}
+count = 0
+for(i = 1; i < n; i = i * 3){
+    for(j = 0; j < n; j = j + 2){
+        count = count + 1
+    }
+}
+\end{verbatim}
+\makenonemptybox{5in}{}
+
+
+\end{enumerate}
+
+
+\end{document}
+
+

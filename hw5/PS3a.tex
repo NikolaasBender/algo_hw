@@ -1,0 +1,165 @@
+\documentclass[12pt]{article}
+\setlength{\oddsidemargin}{0in}
+\setlength{\evensidemargin}{0in}
+\setlength{\textwidth}{6.5in}
+\setlength{\parindent}{0in}
+\setlength{\parskip}{\baselineskip}
+\usepackage{amsmath,amsfonts,amssymb}
+\usepackage{graphicx}
+\usepackage{enumitem}
+\usepackage[]{algorithmicx}
+\usepackage{amsthm}
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+\setlength{\headsep}{36pt}
+
+\usepackage{hyperref}
+
+\theoremstyle{remark}
+\newtheorem*{solution}{Solution}
+
+\newcommand{\makenonemptybox}[2]{%
+%\par\nobreak\vspace{\ht\strutbox}\noindent
+\item[]
+\fbox{% added -2\fboxrule to specified width to avoid overfull hboxes
+% and removed the -2\fboxsep from height specification (image not updated)
+% because in MWE 2cm is should be height of contents excluding sep and frame
+\parbox[c][#1][t]{\dimexpr\linewidth-2\fboxsep-2\fboxrule}{
+  \hrule width \hsize height 0pt
+  #2
+ }%
+}%
+\par\vspace{\ht\strutbox}
+}
+\makeatother
+
+\begin{document}
+
+\lhead{{\bf CSCI 3104, Algorithms \\ Problem Set 3a (9 points)} }
+\rhead{Name: \fbox{\phantom{This is a really long name}} \\ ID: \fbox{\phantom{This is a student ID}} \\ {\bf Profs.\ Hoenigman \& Agrawal\\ Fall 2019, CU-Boulder}}
+\renewcommand{\headrulewidth}{0.5pt}
+
+\phantom{Test}
+
+\begin{small}
+\textbf{Instructions for submitting your solution}:
+\vspace{-5mm} 
+
+\begin{itemize}
+	\item The solutions \textbf{should be typed} and we cannot accept hand-written solutions. \href{http://ece.uprm.edu/~caceros/latex/introduction.pdf}{Here's a short intro to Latex.}
+	\item You should submit your work through \href{https://www.gradescope.com/courses/59294}{\textbf{Gradescope}} only.
+	\item If you don't have an account on it, sign up for one using your CU email. You should have gotten an email to sign up. If your name based CU email doesn't work, try the identikey@colorado.edu version. 
+	\item Gradescope will only accept \textbf{.pdf} files (except for code files that should be submitted separately on Gradescope if a problem set has them) and \textbf{try to fit your work in the box provided}. 
+	\item You cannot submit a pdf which has less pages than what we provided you as Gradescope won't allow it. 
+	\item Verbal reasoning is typically insufficient for full credit. Instead, write a logical argument, in the style of a mathematical proof.
+	\item For every problem in this class, you must justify your answer:\ show how you arrived at it and why it is correct. If there are assumptions you need to make along the way, state those clearly.
+	
+	\item You may work with other students. However, \textbf{all solutions must be written independently and in your own words.} Referencing solutions of any sort is strictly prohibited. You must explicitly cite any sources, as well as any collaborators. 
+\end{itemize}
+\vspace{-4mm} 
+\end{small}
+
+\hrulefill
+
+\newpage
+\begin{enumerate}
+
+
+
+\item Suppose we have a number of events $m_{i}$. Each event starts at time $s_{i}$ and finishes at time $e_{i}$, where $0 \leq s_{i} < e_{i}$. We represent the event $m_{i}$ with the closed interval $[s_{i}, e_{i}].$ Our goal is to construct a maximum size set of events, where no two events in the set overlap. \\
+
+\noindent Suppose the following intervals are provided.
+\begin{center}
+\begin{tabular}{c|c}
+Event Index & Interval \\ \hline
+1 & $[1, 2]$ \\ 
+2 & $[3, 4]$ \\
+3 & $[5, 6]$ \\
+4 & $[7, 8]$ \\
+5 & $[0, 20]$.
+\end{tabular}
+\end{center}
+
+\begin{enumerate}[label=(\alph*)]
+\item (1 pt) What is the maximum size set of events that can be selected such that no two events in the set overlap? Include the list of the events selected in your answer.
+\begin{solution}
+
+\end{solution}
+
+\newpage
+\item (2 pt) Suppose we sort the intervals in ascending order by start time. Consider a greedy algorithm that selects the next event based on earliest start time, so long as the interval selected does not conflict with any previously selected interval. Using the intervals provided, show that this greedy algorithm fails to provide a maximum size set of events, where no two events in the set overlap. That is, the solution returned by this greedy algorithm is not optimal.
+\begin{solution}
+
+\end{solution}
+\end{enumerate}
+
+
+\newpage
+\item Using the same definition in Problem 1, suppose the following intervals are provided.
+\begin{center}
+\begin{tabular}{c|c}
+Event Index & Interval \\ \hline
+1 & $[1, 10]$ \\ 
+2 & $[11, 20]$ \\
+3 & $[21, 30]$ \\
+4 & $[9, 12]$ \\
+5 & $[19, 22]$.
+\end{tabular}
+\end{center}
+
+\begin{enumerate}[label=(\alph*)]
+\item (1 pt) What is the maximum size set of events that can be selected such that no two events in the set overlap? Include the list of the events selected in your answer.
+\begin{solution}
+
+\end{solution}
+
+\newpage
+\item (2 pt) Suppose we sort the intervals in ascending order by interval length. For events with the same length, order by start time. Consider a greedy algorithm that selects the next interval based on the smallest interval length, so long as the interval selected does not conflict with any previously selected interval. Using the intervals provided, show that this greedy algorithm fails to provide a maximum size set of events, where no two events in the set overlap. That is, the solution returned by this greedy algorithm is not optimal.
+
+\begin{solution}
+
+\end{solution}
+
+\end{enumerate}
+
+\newpage
+\item Consider again the same scenario as in Problems 1 and 2, and suppose the following intervals are provided.
+\begin{center}
+\begin{tabular}{c|c}
+Event Index & Interval \\ \hline
+1 & $[1, 3]$ \\ 
+2 & $[4, 6]$ \\
+3 & $[7, 9]$ \\
+4 & $[10, 12]$ \\
+5 & $[2, 5]$ \\
+6 & $[2, 5]$ \\
+7 & $[2, 5]$ \\
+8 & $[5.5, 7.5]$ \\
+9 & $[8, 11]$ \\
+10 & $[8, 11]$ \\
+11 & $[8, 11]$ \\
+\end{tabular}
+\end{center}
+
+\begin{enumerate}[label=(\alph*)]
+\item  (1 pt) What is the maximum size set of events that can be selected such that no two events in the set overlap? Include the list of the events selected in your answer.
+\begin{solution}
+
+\end{solution}
+
+\newpage
+\item (2 pts) Let $c_{i}$ denote the number of intervals on our list in which interval $i$ conflicts. For example, interval $1$ participates in $3$ conflicts: with intervals $5, 6,$ and $7$. So $c_{1} = 3$. \\
+
+\noindent Suppose we sort the intervals in ascending order based on the number of conflicts. So if $c_{i} < c_{j}$, then interval $i$ comes before interval $j$. Consider a greedy algorithm that selects the next interval based on the smallest number of conflicts, so long as the interval selected does not conflict with any previously selected interval. Using the intervals provided, show that this greedy algorithm fails to provide a maximum size set of events, where no two events in the set overlap. That is, the solution returned by this greedy algorithm is not optimal.
+\end{enumerate}
+
+\begin{solution}
+
+\end{solution}
+
+
+\end{enumerate}
+
+\end{document}
+
+
